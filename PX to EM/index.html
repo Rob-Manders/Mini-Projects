@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PX to EM Converter</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="calculator">
+		<label for="px-input">PX</label>
+		<input class="calculator-input calculator-input-main" type="text" name="px-input" id="px-input">
+		
+		<label for="em-input">EM / REM</label>
+		<input class="calculator-input calculator-input-main" type="text" name="em-input" id="em-input">
+		
+		<div class="calculator-default-fontsize">
+			<label for="default-fontsize-input">Default Font Size: </label>
+			<input class="calculator-input calculator-input-secondary" value="16" type="text" name="default-fontsize-input" id="default-fontsize-input">
+			<span>px</span>
+		</div>
+	</div>
+	<script src="app.js"></script>
+</body>
+</html>
