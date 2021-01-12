@@ -8,4 +8,4 @@ A quick and dirty browser tool for converting CSS px and em/rem values on the fl
 
 The [px2em.html](https://github.com/Rob-Manders/Mini-Projects/blob/main/PX%20to%20EM/px2em.html) file is a standalone version of the app for portability.
 
-*Created with HTML, CSS and vanilla JS.*
+*Created with HTML, Sass and vanilla JS.*
