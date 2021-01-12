@@ -1,0 +1,83 @@
+
+// Resets
+html, body {
+	margin: 0;
+	padding: 0;	
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	outline: none;
+}
+
+@import 'variables';
+@import 'background';
+
+body {
+	@include background;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	font-family: $plex;
+}
+
+.calculator {
+	background: white;
+	background: linear-gradient(0deg, $off-white 0%, white 100%);
+
+	padding: 1rem;
+	border-radius: $border-radius;
+	box-shadow: 0 2px 15px 10px rgba(0,0,0,0.3);
+
+	label,
+	span {
+		display: block;
+		font-size: 0.8rem;
+		font-weight: 600;
+		opacity: 0.8;
+		padding-left: $border-radius;
+	}
+
+	&__input {
+		position: relative;
+		font-family: $plex;
+		font-weight: 500;
+		background: $light-grey;
+		border-radius: $border-radius;
+		border-style: none;
+		border-bottom: 0.2rem solid $dark-grey;
+		transition: border 150ms;
+
+		&:focus {
+			border-bottom: 0.2rem solid $bg-light;
+		}
+		
+		&--main {
+			font-size: 1.5rem;
+			margin-bottom: 0.75rem;
+			padding: 0.75rem;
+		}
+
+		&--secondary {
+			width: 3rem;
+			margin: 0 0 0 0.5em;
+			padding: 0.1em 0.35em;
+			border-bottom: 0.15rem solid $dark-grey;
+
+			&:focus {
+				border-bottom: 0.15rem solid $bg-light;
+			}
+		}
+	}
+
+	&__default-fontsize {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin-top: 0.5rem;
+	}
+}
+
+

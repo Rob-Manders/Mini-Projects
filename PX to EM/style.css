@@ -8,6 +8,7 @@ html, body {
 *::before,
 *::after {
 	box-sizing: border-box;
+	outline: none;
 }
 
 /* Custom Properties */
