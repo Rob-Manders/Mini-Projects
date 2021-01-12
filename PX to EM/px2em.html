@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PX to EM Converter</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+
+		*,
+		*::before,
+		*::after {
+			-webkit-box-sizing: border-box;
+					  box-sizing: border-box;
+			outline: none;
+		}
+
+		body {
+			background: #760082;
+			background: linear-gradient(-45deg, #43004a 25%, #510059 25%, #510059 50%, #43004a 50%, #43004a 75%, #510059 75%);
+			background-size: 75px 75px;
+			height: 100vh;
+			display: -ms-grid;
+			display: grid;
+			place-items: center;
+			font-family: "IBM Plex Sans", sans-serif;
+		}
+
+		.calculator {
+			background: white;
+			background: -webkit-gradient(linear, left bottom, left top, from(#f1f1f1), to(white));
+			background: linear-gradient(0deg, #f1f1f1 0%, white 100%);
+			padding: 1rem;
+			border-radius: 0.2em;
+			-webkit-box-shadow: 0 2px 15px 10px rgba(0, 0, 0, 0.3);
+				     box-shadow: 0 2px 15px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		.calculator label,
+		.calculator span {
+			display: block;
+			font-size: 0.8rem;
+			font-weight: 600;
+			opacity: 0.8;
+			padding-left: 0.2em;
+		}
+
+		.calculator__input {
+			position: relative;
+			font-family: "IBM Plex Sans", sans-serif;
+			font-weight: 500;
+			background: #ddd;
+			border-radius: 0.2em;
+			border-style: none;
+			border-bottom: 0.2rem solid #aaa;
+			-webkit-transition: border 150ms;
+					  transition: border 150ms;
+		}
+
+		.calculator__input:focus {
+			border-bottom: 0.2rem solid #510059;
+		}
+
+		.calculator__input--main {
+			font-size: 1.5rem;
+			margin-bottom: 0.75rem;
+			padding: 0.75rem;
+		}
+
+		.calculator__input--secondary {
+			width: 3rem;
+			margin: 0 0 0 0.5em;
+			padding: 0.1em 0.35em;
+			border-bottom: 0.15rem solid #aaa;
+		}
+
+		.calculator__input--secondary:focus {
+			border-bottom: 0.15rem solid #510059;
+		}
+
+		.calculator__default-fontsize {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+					-ms-flex-align: center;
+						align-items: center;
+			-webkit-box-pack: end;
+					-ms-flex-pack: end;
+						justify-content: flex-end;
+			margin-top: 0.5rem;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="calculator">
+		<label for="px-input">PX</label>
+		<input class="calculator__input calculator__input--main" type="text" name="px-input" id="px-input">
+		
+		<label for="em-input">EM / REM</label>
+		<input class="calculator__input calculator__input--main" type="text" name="em-input" id="em-input">
+		
+		<div class="calculator__default-fontsize">
+			<label for="default-fontsize-input">Default Font Size: </label>
+			<input class="calculator__input calculator__input--secondary" value="16" type="text" name="default-fontsize-input" id="default-fontsize-input">
+			<span>px</span>
+		</div>
+	</div>
+
+	<script>
+		const pxInput = document.getElementById('px-input')
+		const emInput = document.getElementById('em-input')
+		const defaultFontsizeInput = document.getElementById('default-fontsize-input')
+
+		const decimals = 4
+		const defaultFontsize = 16
+
+		pxInput.value = defaultFontsize;
+		emInput.value = (pxInput.value / defaultFontsizeInput.value).toFixed(decimals);
+		defaultFontsizeInput.value = defaultFontsize
+
+		function clearInputs() {
+			pxInput.value = ''
+			emInput.value = ''
+		}
+
+		pxInput.addEventListener('focus', () => clearInputs())
+		emInput.addEventListener('focus', () => clearInputs())
+
+		pxInput.addEventListener('input', () => {
+			if (!isNaN(pxInput.value) && !isNaN(defaultFontsizeInput.value)) {
+				emInput.value = (pxInput.value / defaultFontsizeInput.value).toFixed(decimals)
+			}
+		})
+
+		emInput.addEventListener('input', () => {
+			if (!isNaN(emInput.value) && !isNaN(defaultFontsizeInput.value)) {
+				pxInput.value = (emInput.value * defaultFontsizeInput.value).toFixed(0)
+			}
+		})
+	</script>
+
+</body>
+</html>
