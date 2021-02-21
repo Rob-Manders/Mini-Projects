@@ -1,0 +1,15 @@
+
+@mixin background {
+	
+
+	background: rgb(118,0,130);
+	background: linear-gradient(
+		-45deg, 
+		$bg-dark 25%, 
+		$bg-light 25%, $bg-light 50%, 
+		$bg-dark 50%, $bg-dark 75%, 
+		$bg-light 75%
+	);
+
+	background-size: 75px 75px ;
+}

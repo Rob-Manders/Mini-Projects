@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contrast Ratio Calculator</title>
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<main>
+		<div id="colour-window">
+			<div id="colour-window__foreground-colour"></div>
+		</div>
+
+		<div class="colour-input">
+			<div class="colour-input__fields">
+				<label for="background-input">Background</label>
+				<input type="text" class="colour-input__input" name="background-input" id="background-input" />
+
+				<label for="foreground-input">Foreground</label>
+				<input type="text" class="colour-input__input" name="foreground-input" id="foreground-input" />
+			</div>
+
+			<button id="submit-inputs">Calculate</button>
+		</div>
+
+		<div class="results">
+			<h2 id="result-display">4.68</h2>
+			<!-- <h2 id="result-display--error">Background input is an invalid format.</h2> -->
+		</div>
+	</main>
+	<script src="./app.js"></script>
+</body>
+</html>
