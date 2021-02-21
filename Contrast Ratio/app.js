@@ -54,12 +54,12 @@ function classifyInput(colour) {
 
 	if (type !== 'invalid') {
 		return {
-			...colour,
-			type: type,
-			valid: true
+			...colour,		// This is what the spread operator does, Chris.
+			type: type,		// Basically it's saying "copy the 'colour' object,
+			valid: true		// then change these values within this new object".
 		}
-	} else {
-		return {
+	} else {					// Pretty handy, right?
+		return {	
 			...colour,
 			type: '',
 			valid: false
@@ -139,7 +139,7 @@ document.addEventListener('keypress', event => {
 	// activate the focused DOM element by default, activating the 'click' listener above.
 
 	// This check will only call calculateContrast() if the button is not already focused.
-	
+
 	if (document.activeElement !== submitInputs) {
 		event.code === 'Enter' && calculateContrast()
 	}
