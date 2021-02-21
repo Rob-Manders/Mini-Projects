@@ -46,13 +46,11 @@ main {
 		width: $size;
 		height: $size;
 		padding: 50px;
-		background-color: firebrick;	// Should be changed by JS.
 		border-radius: $border-radius;
 
 		&__foreground-colour {
 			width: 150px;
 			height: 150px;
-			background-color: gold;
 			border-radius: 50%;
 			padding: 10px 30px 10px 0px;
 		}

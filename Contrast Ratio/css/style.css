@@ -47,14 +47,12 @@ main #colour-window {
   width: 250px;
   height: 250px;
   padding: 50px;
-  background-color: firebrick;
   border-radius: 0.2em;
 }
 
 main #colour-window__foreground-colour {
   width: 150px;
   height: 150px;
-  background-color: gold;
   border-radius: 50%;
   padding: 10px 30px 10px 0px;
 }

@@ -1,6 +1,6 @@
 
 const colourDisplay = {
-	bacgkround:	document.getElementById('colour-window'),
+	background:	document.getElementById('colour-window'),
 	foreground: document.getElementById('colour-window__foreground-colour')
 }
 
@@ -8,6 +8,11 @@ const backgroundInput = document.getElementById('background-input')
 const foregroundInput = document.getElementById('foreground-input')
 const submitInputs = document.getElementById('submit-inputs')
 const resultDisplay = document.getElementById('result-display')
+
+const defaultColours = {
+	background: '#4f006e',
+	foreground: '#b700ff'
+}
 
 let backgroundColour = {
 	inputString: '',
@@ -25,6 +30,13 @@ let foregroundColour = {
 	alpha: 1
 }
 
+
+// Set default preview colours.
+colourDisplay.background.style.backgroundColor = defaultColours.background
+colourDisplay.foreground.style.backgroundColor = defaultColours.foreground
+
+
+// Identify inputs and validate:
 function identifyInput(inputString) {
 	if (inputString.includes('#')) {
 		return 'hex'
@@ -55,11 +67,13 @@ function classifyInput(colour) {
 	}
 }
 
+
+// Error messaging:
 function showError(type) {
 	const errorMessage = {
 		foreground: 'Foreground input is not a valid format.',
 		background: 'Background input is not a valid format.',
-		both: 'Neither input is a valid format.'
+		both: 		'Neither input is a valid format.'
 	}
 
 	resultDisplay.classList.add('result-display--error')
@@ -74,8 +88,6 @@ function showError(type) {
 		case 'FOREGROUND_INVALID':
 			resultDisplay.textContent = errorMessage.foreground
 			break
-		default:
-			break
 	}
 }
 
@@ -84,6 +96,8 @@ function clearError() {
 	resultDisplay.textContent = 'No Errors'
 }
 
+
+// Main function.
 function calculateContrast() {
 	backgroundColour.inputString = backgroundInput.value.toLowerCase()
 	foregroundColour.inputString = foregroundInput.value.toLowerCase()
@@ -105,6 +119,7 @@ function calculateContrast() {
 	} else {
 		clearError()
 
+		// Update display with user-inputted colours.
 		// Convert HSL and HEX values to RGB.
 		// Convert RGB values to raw RGB.
 
@@ -113,15 +128,18 @@ function calculateContrast() {
 	}
 }
 
+
 // Input submission event listeners:
 submitInputs.addEventListener('click', () => calculateContrast())
 
 document.addEventListener('keypress', event => {
-	// Clicking the button with the mouse gives it focus, resulting in the calculateContrast() function being called
-	// twice unless the user manually de-focuses the button, as pressing Enter will activate the focused DOM element.
+	// Clicking the button with the mouse gives it focus, resulting in the calculateContrast() 
+	// function being called twice here unless the user de-focuses the button manually, such as 
+	// by clicking on another element or on an empty area of the screen. Pressing Enter will 
+	// activate the focused DOM element by default, activating the 'click' listener above.
 
 	// This check will only call calculateContrast() if the button is not already focused.
-
+	
 	if (document.activeElement !== submitInputs) {
 		event.code === 'Enter' && calculateContrast()
 	}
