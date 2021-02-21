@@ -31,7 +31,7 @@ let foregroundColour = {
 }
 
 
-// Set default preview colours.
+// Set default preview colours:
 colourDisplay.background.style.backgroundColor = defaultColours.background
 colourDisplay.foreground.style.backgroundColor = defaultColours.foreground
 
@@ -97,7 +97,7 @@ function clearError() {
 }
 
 
-// Main function.
+// Main function:
 function calculateContrast() {
 	backgroundColour.inputString = backgroundInput.value.toLowerCase()
 	foregroundColour.inputString = foregroundInput.value.toLowerCase()
@@ -110,7 +110,7 @@ function calculateContrast() {
 	console.log(foregroundColour)
 
 	// Show error if one or both inputs are invalid.
-	if (!backgroundColour.value && !foregroundColour.valid) {
+	if (!backgroundColour.valid && !foregroundColour.valid) {
 		showError('BOTH_INVALID')
 	} else if (!backgroundColour.valid) {
 		showError('BACKGROUND_INVALID')
