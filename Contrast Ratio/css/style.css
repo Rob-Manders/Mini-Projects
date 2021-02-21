@@ -130,12 +130,12 @@ main .results {
   height: 5rem;
 }
 
-main .results #result-display {
+main .results .result-display {
   font-size: 2.5rem;
   margin: 0;
 }
 
-main .results #result-display--error {
+main .results .result-display--error {
   font-size: 1.5rem;
   color: #ce0000;
 }
